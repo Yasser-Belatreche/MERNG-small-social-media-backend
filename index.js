@@ -20,6 +20,9 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => console.log("db connected"));
+  .catch(err => {
+    console.error(err)
+  })
 
 server.listen({ port: 5000 }).then((res) => {
   console.log(`server is running at ${res.url}`);
