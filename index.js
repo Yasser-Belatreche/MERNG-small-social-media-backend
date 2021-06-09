@@ -21,11 +21,12 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("db connected"))
+  .then(() => {
+    server.listen({ port: PORT }).then((res) => {
+      console.log(`server is running at ${res.url}`);
+    });
+    console.log("db connected");
+  })
   .catch((err) => {
     console.error(err);
   });
-
-server.listen({ port: PORT }).then((res) => {
-  console.log(`server is running at ${res.url}`);
-});
